@@ -43,7 +43,7 @@ export class TelegramService {
   }
 
   private sendWelcomeMessage(chatId: number, username?: string) {
-    const welcomeMessage = `Hello @${username}!\nЯ здесь чтобы сгененировать ответы на преживания и вопросы людей. Напишите мне что-нибудь, чтобы начать общение.`;
+    const welcomeMessage = `Hello @${username}!\nЯ создан чтобы генерировать ответы на переживания и впоросы людей. По поводу гэмблинга. Просто перешлите мне сообщение и я попробую помочь вам в ответе.`;
     this.bot.sendMessage(chatId, welcomeMessage);
   }
 
