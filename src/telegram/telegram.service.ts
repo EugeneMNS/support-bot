@@ -75,11 +75,13 @@ export class TelegramService {
   }
 
   private receiveResponseFromOpenAI(chatId: number) {
-    this.openai.beta.threads.runs.createAndStream(this.openaiThreads[chatId], {
-      assistant_id: this.assistantId,
-    }).on('textDone', (textDone) => {
-      this.bot.sendMessage(chatId, textDone.value); // Directly send the received message.
-    });
+    this.openai.beta.threads.runs
+      .createAndStream(this.openaiThreads[chatId], {
+        assistant_id: this.assistantId,
+      })
+      .on('textDone', (textDone) => {
+        this.bot.sendMessage(chatId, textDone.value); // Directly send the received message.
+      });
   }
 
   sendTypingForChat(chatId: number) {
@@ -94,4 +96,3 @@ export class TelegramService {
     }
   }
 }
-
