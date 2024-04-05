@@ -33,6 +33,12 @@ export class TelegramService {
         case '/start':
           this.sendWelcomeMessage(chatId, msg.chat.username);
           break;
+        case undefined:
+          this.bot.sendMessage(
+            chatId,
+            'Hejka! Wyslij mi wiadomosc, a ja odpowiem na nia. Я создан только для обработки текстовых сообщений.',
+          );
+          break;
         case '/new':
           await this.handleNewCommand(chatId);
           break;
